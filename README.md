@@ -26,7 +26,7 @@ cp .env.example .env
 Atualize as variáveis de ambiente do arquivo .env
 ```dosini
 APP_NAME=""
-APP_URL=http://localhost:8989
+APP_URL=http://localhost:8000
 
 DB_CONNECTION=mysql
 DB_HOST=db
