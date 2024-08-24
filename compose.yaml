@@ -68,7 +68,7 @@ services:
       environment:
         - HOST=0.0.0.0
         - PORT=5173
-      working_dir: /var/www/html
+      working_dir: /var/www
       networks:
         - laravel
 networks:
