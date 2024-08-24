@@ -26,18 +26,6 @@ cp -rf setup-docker-laravel/* app-laravel/
 cd app-laravel/
 ```
 
-Remova o git
-
-```sh
-rm -rf .git
-```
-
-Crie o Arquivo .env
-
-```sh
-cp .env.example .env
-```
-
 Atualize as variáveis de ambiente do arquivo .env
 
 ```dosini
@@ -61,18 +49,6 @@ Acessar o container e o terminal da aplicação
 
 ```sh
 docker compose exec app bash
-```
-
-Instalar as dependências do projeto
-
-```sh
-composer install
-```
-
-Gerar a key do projeto Laravel
-
-```sh
-php artisan key:generate
 ```
 
 Criar tabelas iniciais
