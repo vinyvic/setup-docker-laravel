@@ -26,6 +26,12 @@ cp -rf setup-docker-laravel/* app-laravel/
 cd app-laravel/
 ```
 
+Remova o git
+
+```sh
+ rm -rf .git
+```
+
 Atualize as variáveis de ambiente do arquivo .env
 
 ```dosini
