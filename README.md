@@ -16,6 +16,12 @@ Clone os Arquivos do Laravel
 git clone https://github.com/laravel/laravel.git app-laravel
 ```
 
+Remova o git
+
+```sh
+rm -rf .git
+```
+
 Copie os arquivos docker-compose.yml, Dockerfile e o diretório docker/ para o seu projeto
 
 ```sh
