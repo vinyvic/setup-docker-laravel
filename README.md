@@ -10,19 +10,13 @@ Clone Repositório
 git clone https://github.com/vinyvic/setup-docker-laravel.git
 ```
 
-Clone os Arquivos do Laravel
+Crie um projeto laravel utilizando a imagem composer com o docker
 
 ```sh
-git clone https://github.com/laravel/laravel.git app-laravel
+docker run --rm --volume $PWD:/app --user $(id -u):$(id -g) composer create-project laravel/laravel app-laravel
 ```
 
-Remova o git
-
-```sh
-rm -rf .git
-```
-
-Copie os arquivos docker-compose.yml, Dockerfile e o diretório docker/ para o seu projeto
+Copie os arquivos do setup-docker para o seu projeto
 
 ```sh
 cp -rf setup-docker-laravel/* app-laravel/
@@ -30,6 +24,12 @@ cp -rf setup-docker-laravel/* app-laravel/
 
 ```sh
 cd app-laravel/
+```
+
+Remova o git
+
+```sh
+rm -rf .git
 ```
 
 Crie o Arquivo .env
@@ -41,7 +41,6 @@ cp .env.example .env
 Atualize as variáveis de ambiente do arquivo .env
 
 ```dosini
-APP_NAME=""
 APP_URL=http://localhost:8000
 
 DB_CONNECTION=mysql
@@ -80,6 +79,24 @@ Criar tabelas iniciais
 
 ```sh
 php artisan migrate
+```
+
+Utilizar node
+
+```sh
+docker compose run --rm node `comando`
+```
+
+Instalar dependencias JS
+
+```sh
+docker compose run --rm node npm i
+```
+
+Executar servidor de testes
+
+```sh
+docker compose run --rm -p 5173:5173 node npm run dev
 ```
 
 Acessar o projeto
