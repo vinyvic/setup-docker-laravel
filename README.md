@@ -75,6 +75,33 @@ Instalar dependencias JS
 docker compose run --rm node npm i
 ```
 
+Atualizar arquivo vite.config.js para funcionar com o docker
+```js
+import { defineConfig } from "vite";
+import laravel from "laravel-vite-plugin";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+    plugins: [
+        laravel({
+            input: ["resources/css/app.css", "resources/js/app.js"],
+            refresh: true,
+        }),
+        tailwindcss(),
+    ],
+    server: {
+        host: "0.0.0.0",
+        port: 5173,
+        hmr: {
+            // If you're running Vite on a different host than your frontend, you may need to set the client URL explicitly
+            clientPort: 5173,
+            // Use the public hostname of your Docker service for HMR to work properly
+            host: process.env.HMR_HOST || "localhost",
+        },
+    },
+});
+```
+
 Executar servidor de testes
 
 ```sh
